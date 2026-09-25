@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Glimpse is a mobile-first community stadium for voting on live VS battles across Nigerian politics, Afrobeats, and cinema."
+    />
+    <title>Glimpse | Weekly VS Battles</title>
+    <meta name="theme-color" content="#0b0c10" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <!-- Replace with your GA4 measurement ID below before publishing.
+         Example: G-XXXXXXXXXX -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">G</div>
+          <div class="brand-copy">
+            <span class="brand-name">Glimpse</span>
+            <span class="brand-tag">Nigeria’s Pulse Arena</span>
+          </div>
+        </div>
+
+        <nav class="category-tabs" aria-label="Battle categories">
+          <button class="tab active" type="button" data-category="politics">
+            🗳️ Politics
+          </button>
+          <button class="tab" type="button" data-category="afrobeats">
+            🎵 Afrobeats
+          </button>
+          <button class="tab" type="button" data-category="cinema">
+            🎬 Cinema
+          </button>
+        </nav>
+
+        <div class="countdown-box" aria-live="polite">
+          <span class="countdown-label">Sunday Reset</span>
+          <strong id="countdownTimer">00d 00h 00m 00s</strong>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="battle-stage" aria-labelledby="battle-header">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Live arena</span>
+              <h1 id="battle-header">This Week’s VS Battle</h1>
+            </div>
+            <button class="ghost-button" type="button">See history</button>
+          </div>
+
+          <div id="battleArena" class="battle-arena" aria-live="polite"></div>
+        </section>
+
+        <section class="comment-section" aria-labelledby="comment-header">
+          <div class="section-heading compact">
+            <div>
+              <span class="eyebrow">This is where the heat starts</span>
+              <h2 id="comment-header">Chaos Comments</h2>
+            </div>
+            <span class="comment-pill">43.2k engaged</span>
+          </div>
+
+          <form id="commentForm" class="comment-form">
+            <div class="author-row">
+              <input
+                id="commentHandle"
+                type="text"
+                maxlength="18"
+                placeholder="Anonymous handle"
+                aria-label="Comment handle"
+              />
+              <button type="submit" class="primary-button small">Drop comment</button>
+            </div>
+            <textarea
+              id="commentInput"
+              rows="3"
+              maxlength="220"
+              placeholder="Say what the people aren’t saying..."
+              aria-label="Comment text"
+            ></textarea>
+          </form>
+
+          <div id="commentFeed" class="comment-feed" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
